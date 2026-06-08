@@ -29,14 +29,20 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-6 opacity-70 mb-2">
             <img
-              alt="IBM Z Skills Logo"
+              alt="IBM Z Skills — Logo"
               className="h-6 w-auto grayscale"
               src={IMAGES.ibmZLogo}
+              width={96}
+              height={24}
+              loading="lazy"
             />
             <img
-              alt="LEAD UTP Logo"
+              alt="LEAD UTP — Logo"
               className="h-5 w-auto grayscale"
               src={IMAGES.leadUtpLogo}
+              width={80}
+              height={20}
+              loading="lazy"
             />
           </div>
           <p className="font-mono text-label-caps tracking-[0.05em] text-on-surface-variant text-center md:text-left">

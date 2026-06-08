@@ -90,9 +90,13 @@ export default function HeroSection() {
               aria-hidden="true"
             />
             <img
-              alt="IBM Bob 3D Character — mascota del evento"
+              alt="IBM Bob 3D Character — mascota del evento IBM Z Career Connection"
               className="relative z-10 w-full h-auto drop-shadow-2xl"
               src={IMAGES.ibmBob}
+              width={320}
+              height={320}
+              loading="eager"
+              fetchpriority="high"
             />
           </div>
         </FadeInUp>

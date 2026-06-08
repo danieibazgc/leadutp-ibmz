@@ -16,15 +16,21 @@ export default function Navbar() {
         {/* Brand / Logos */}
         <div className="flex items-center gap-4">
           <img
-            alt="IBM Z Logo"
+            alt="IBM Z Skills — Logo oficial"
             className="h-8 w-auto"
             src={IMAGES.ibmZLogo}
+            width={120}
+            height={32}
+            loading="eager"
           />
           <span className="h-6 w-px bg-outline-variant hidden md:block" aria-hidden="true" />
           <img
-            alt="LEAD UTP Logo"
+            alt="LEAD UTP — Organización estudiantil de la Universidad Tecnológica del Perú"
             className="h-6 w-auto hidden md:block opacity-90"
             src={IMAGES.leadUtpLogo}
+            width={96}
+            height={24}
+            loading="lazy"
           />
           <span className="font-mono text-headline-sm font-bold text-primary ml-2 hidden lg:block">
             IBM Z | LEAD UTP

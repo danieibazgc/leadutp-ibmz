@@ -26,9 +26,12 @@ export default function SpeakerSection() {
           <FadeInUp className="lg:col-span-4">
             <div className="relative aspect-square border-l-4 border-ibm-blue-medium bg-surface-variant overflow-hidden">
               <img
-                alt={`${SPEAKER.name} — ${SPEAKER.role}`}
+                alt={`${SPEAKER.name}, ${SPEAKER.role} en IBM — Ponente del evento IBM Z Career Connection UTP`}
                 className="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500"
                 src={SPEAKER.photo}
+                width={400}
+                height={400}
+                loading="lazy"
               />
               <div className="absolute bottom-0 left-0 bg-surface-container-high/90 backdrop-blur-sm border-t border-r border-outline-variant p-4 w-full">
                 <h3 className="font-body text-headline-sm font-bold text-white">
