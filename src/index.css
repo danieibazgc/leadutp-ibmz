@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens (Tailwind v4 @theme) ─── */
+@theme {
+  /* Colors — IBM Carbon-inspired dark palette */
+  --color-surface-variant: #353534;
+  --color-on-primary-fixed: #00174c;
+  --color-surface-container: #201f1f;
+  --color-on-tertiary-fixed-variant: #4b1dc1;
+  --color-secondary-fixed: #ffdad4;
+  --color-on-secondary-fixed: #410000;
+  --color-secondary-fixed-dim: #ffb4a8;
+  --color-primary-container: #0f62fe;
+  --color-inverse-surface: #e5e2e1;
+  --color-on-surface: #e5e2e1;
+  --color-on-secondary-container: #ffdcd7;
+  --color-primary-fixed: #dbe1ff;
+  --color-outline-variant: #424656;
+  --color-surface: #131313;
+  --color-surface-tint: #b4c5ff;
+  --color-primary: #b4c5ff;
+  --color-tertiary-fixed-dim: #cbbeff;
+  --color-gray-cool: #21272A;
+  --color-lead-crimson: #CB2F4A;
+  --color-on-primary: #002979;
+  --color-surface-container-high: #2a2a2a;
+  --color-tertiary-container: #7553eb;
+  --color-primary-fixed-dim: #b4c5ff;
+  --color-lead-navy: #020C3E;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-inverse-primary: #0052dd;
+  --color-on-tertiary: #340098;
+  --color-tertiary: #cbbeff;
+  --color-background: #131313;
+  --color-surface-dim: #131313;
+  --color-secondary-container: #ce0301;
+  --color-secondary: #ffb4a8;
+  --color-on-secondary: #690000;
+  --color-ibm-blue-medium: #4589FF;
+  --color-on-secondary-fixed-variant: #930000;
+  --color-outline: #8c90a2;
+  --color-on-tertiary-fixed: #1e0060;
+  --color-inverse-on-surface: #313030;
+  --color-error: #ffb4ab;
+  --color-ibm-blue-dark: #001141;
+  --color-on-surface-variant: #c3c6d8;
+  --color-on-primary-container: #f3f3ff;
+  --color-surface-container-highest: #353534;
+  --color-on-error-container: #ffdad6;
+  --color-tertiary-fixed: #e7deff;
+  --color-on-background: #e5e2e1;
+  --color-error-container: #93000a;
+  --color-on-primary-fixed-variant: #003da9;
+  --color-on-tertiary-container: #f8f1ff;
+  --color-on-error: #690005;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-bright: #393939;
+
+  /* Spacing */
+  --spacing-container-max: 1280px;
+  --spacing-margin-desktop: 32px;
+  --spacing-gutter: 16px;
+  --spacing-margin-mobile: 16px;
+  --spacing-unit: 8px;
+
+  /* Font families */
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Font sizes — custom design scale */
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 16px;
+  --text-label-caps--font-weight: 600;
+  --text-label-caps--letter-spacing: 0.05em;
+
+  --text-label-mono: 14px;
+  --text-label-mono--line-height: 20px;
+  --text-label-mono--font-weight: 500;
+  --text-label-mono--letter-spacing: 0.02em;
+
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 32px;
+  --text-headline-sm--font-weight: 500;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 40px;
+  --text-headline-md--font-weight: 500;
+
+  --text-display-lg-mobile: 32px;
+  --text-display-lg-mobile--line-height: 40px;
+  --text-display-lg-mobile--font-weight: 600;
+
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 60px;
+  --text-display-lg--font-weight: 600;
+  --text-display-lg--letter-spacing: -0.01em;
+
+  /* Border radius — 0 for industrial aesthetic */
+  --radius: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 0px;
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-modal-enter: modalEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-backdrop-fade: backdropFade 0.2s ease-out forwards;
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes modalEnter {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes backdropFade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* ─── Base Styles ─── */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+/* Material Symbols config */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ─── Custom Utilities ─── */
+
+/* Dot grid background */
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Subtle cross-hatch texture */
+.bg-crosshatch {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTMxMzEzIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMzMTMwMzAiPjwvcmVjdD4KPC9zdmc+');
+}
+
+/* ─── Fade-in-up animation ─── */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Reduced motion preference ─── */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-float {
+    animation: none;
+  }
+}
+
+/* ─── Skip to content link ─── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ─── Focus visible globally ─── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-ibm-blue-medium);
+  outline-offset: 2px;
+}
