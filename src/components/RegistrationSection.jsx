@@ -34,10 +34,10 @@ export default function RegistrationSection() {
           </p>
         </FadeInUp>
 
-        {/* Luma Registration iframe — 3:4 mobile / 4:3 desktop (max 90vh) */}
+        {/* Luma Registration iframe — 2:3 mobile / 4:3 desktop (max 90vh) */}
         <FadeInUp delay={200}>
           <div
-            className="relative overflow-hidden shadow-2xl mx-auto w-full aspect-[3/4] md:aspect-[4/3] md:max-w-[calc(90vh*4/3)]"
+            className="relative overflow-hidden shadow-2xl mx-auto w-full aspect-[2/3] md:aspect-[4/3] md:max-w-[calc(90vh*4/3)]"
             aria-label="Formulario de registro al evento en Luma"
           >
             <iframe
