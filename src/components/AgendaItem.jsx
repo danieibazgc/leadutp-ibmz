@@ -21,7 +21,7 @@ export default function AgendaItem({ time, title, description }) {
       </div>
 
       {/* Title */}
-      <h4 className="font-body text-headline-sm font-bold mb-2">{title}</h4>
+      <h4 className="font-body text-lg sm:text-headline-sm font-bold mb-2">{title}</h4>
 
       {/* Description */}
       <p className="text-on-surface-variant text-sm">{description}</p>

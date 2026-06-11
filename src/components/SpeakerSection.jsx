@@ -7,7 +7,7 @@ import FadeInUp from './FadeInUp';
 export default function SpeakerSection() {
   return (
     <section
-      className="py-24 bg-surface-container border-b border-outline-variant relative"
+      className="py-16 sm:py-24 bg-surface-container border-b border-outline-variant relative"
       id="speakers"
       aria-labelledby="speaker-title"
     >
@@ -21,7 +21,7 @@ export default function SpeakerSection() {
       </div>
 
       <div className="max-w-[1280px] mx-auto px-4 md:px-margin-desktop relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Speaker Photo */}
           <FadeInUp className="lg:col-span-4">
             <div className="relative aspect-square border-l-4 border-ibm-blue-medium bg-surface-variant overflow-hidden">
@@ -34,7 +34,7 @@ export default function SpeakerSection() {
                 loading="lazy"
               />
               <div className="absolute bottom-0 left-0 bg-surface-container-high/90 backdrop-blur-sm border-t border-r border-outline-variant p-4 w-full">
-                <h3 className="font-body text-headline-sm font-bold text-white">
+                <h3 className="font-body text-lg sm:text-headline-sm font-bold text-white">
                   {SPEAKER.name}
                 </h3>
                 <p className="font-mono text-label-mono tracking-[0.02em] text-ibm-blue-medium">

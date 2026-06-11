@@ -24,7 +24,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full border-t border-outline-variant bg-surface-container-lowest text-on-surface-variant">
-      <div className="flex flex-col md:flex-row justify-between items-center py-12 px-4 md:px-margin-desktop max-w-[1280px] mx-auto gap-4">
+      <div className="flex flex-col md:flex-row justify-between items-center py-8 sm:py-12 px-4 md:px-margin-desktop max-w-[1280px] mx-auto gap-4">
         {/* Brand / Copyright */}
         <div className="flex flex-col items-center md:items-start gap-4">
           <div className="flex items-center gap-6 opacity-70 mb-2">
@@ -54,7 +54,7 @@ export default function Footer() {
 
         {/* Footer Links */}
         <nav aria-label="Enlaces del pie de página">
-          <ul className="flex flex-wrap justify-center gap-6 mt-6 md:mt-0 list-none">
+          <ul className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 mt-6 md:mt-0 list-none">
             {FOOTER_LINKS.map((link) => (
               <li key={link.label}>
                 {link.id ? (

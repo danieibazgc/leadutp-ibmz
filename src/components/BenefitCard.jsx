@@ -8,10 +8,10 @@
  */
 export default function BenefitCard({ icon, title, description }) {
   return (
-    <article className="bg-gray-cool border border-outline-variant p-6 hover:border-ibm-blue-medium transition-colors duration-200">
+    <article className="bg-gray-cool border border-outline-variant p-4 sm:p-6 hover:border-ibm-blue-medium transition-colors duration-200">
       {/* Icon */}
       <div
-        className="h-12 w-12 bg-primary-container/10 flex items-center justify-center mb-6"
+        className="h-12 w-12 bg-primary-container/10 flex items-center justify-center mb-4 sm:mb-6"
         aria-hidden="true"
       >
         <span
@@ -23,7 +23,7 @@ export default function BenefitCard({ icon, title, description }) {
       </div>
 
       {/* Heading */}
-      <h3 className="font-body text-headline-sm mb-2">{title}</h3>
+      <h3 className="font-body text-lg sm:text-headline-sm mb-2">{title}</h3>
 
       {/* Description */}
       <p className="text-on-surface-variant text-sm">{description}</p>

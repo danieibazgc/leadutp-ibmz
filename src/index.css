@@ -150,6 +150,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 ::selection {
   background-color: var(--color-primary-container);
   color: var(--color-on-primary-container);

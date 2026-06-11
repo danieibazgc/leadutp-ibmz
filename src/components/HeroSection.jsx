@@ -7,11 +7,11 @@ import FadeInUp from './FadeInUp';
 export default function HeroSection() {
   return (
     <section
-      className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 bg-ibm-blue-dark bg-dots overflow-hidden border-b border-outline-variant"
+      className="relative pt-24 pb-16 lg:pt-40 lg:pb-32 bg-ibm-blue-dark bg-dots overflow-hidden border-b border-outline-variant"
       id="event"
       aria-labelledby="hero-title"
     >
-      <div className="max-w-[1280px] mx-auto px-4 md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-[1280px] mx-auto px-4 md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         {/* Left: Content */}
         <FadeInUp className="space-y-8">
           {/* Badge */}

@@ -53,7 +53,7 @@ export default function Modal({ isOpen, onClose, title, content }) {
     >
       {/* Modal Box */}
       <div
-        className="relative w-full max-w-[640px] bg-surface-container border border-outline-variant shadow-2xl flex flex-col max-h-[85vh] animate-modal-enter"
+        className="relative w-full max-w-[640px] bg-surface-container border border-outline-variant shadow-2xl flex flex-col max-h-[90vh] sm:max-h-[85vh] animate-modal-enter"
         style={{
           boxShadow: '0 0 30px rgba(15, 98, 254, 0.15)', // Subtle IBM blue glow
         }}
@@ -62,7 +62,7 @@ export default function Modal({ isOpen, onClose, title, content }) {
         <div className="absolute top-0 left-0 w-full h-[3px] bg-primary-container" />
 
         {/* Header */}
-        <div className="flex justify-between items-center px-6 pt-6 pb-4 border-b border-outline-variant bg-surface-container-high/50">
+        <div className="flex justify-between items-center px-4 sm:px-6 pt-4 sm:pt-6 pb-3 sm:pb-4 border-b border-outline-variant bg-surface-container-high/50">
           <h2
             id="modal-title"
             className="font-mono text-body-lg md:text-headline-sm font-bold uppercase tracking-wider text-primary"
@@ -82,7 +82,7 @@ export default function Modal({ isOpen, onClose, title, content }) {
         </div>
 
         {/* Scrollable Body Content */}
-        <div className="flex-1 overflow-y-auto px-6 py-6 scrollbar-thin scrollbar-thumb-outline-variant space-y-6">
+        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6 scrollbar-thin scrollbar-thumb-outline-variant space-y-6">
           {content.introduction && (
             <p className="text-on-surface text-body-md leading-relaxed border-l-2 border-primary/50 pl-4 italic">
               {content.introduction}
@@ -109,7 +109,7 @@ export default function Modal({ isOpen, onClose, title, content }) {
         </div>
 
         {/* Footer */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 px-6 py-4 border-t border-outline-variant bg-surface-container-high/30">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 border-t border-outline-variant bg-surface-container-high/30">
           <span className="font-mono text-[10px] text-outline uppercase tracking-wider">
             {content.footer || '© 2026 IBM Z Career Connection'}
           </span>

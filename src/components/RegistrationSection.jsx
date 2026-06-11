@@ -6,7 +6,7 @@ import FadeInUp from './FadeInUp';
 export default function RegistrationSection() {
   return (
     <section
-      className="py-32 bg-ibm-blue-dark relative overflow-hidden"
+      className="py-16 sm:py-24 lg:py-32 bg-ibm-blue-dark relative overflow-hidden"
       id="register"
       aria-labelledby="register-title"
     >
@@ -22,10 +22,10 @@ export default function RegistrationSection() {
 
       <div className="max-w-3xl mx-auto px-4 md:px-margin-desktop relative z-10">
         {/* Section Header */}
-        <FadeInUp className="text-center mb-12">
+        <FadeInUp className="text-center mb-8 sm:mb-12">
           <h2
             id="register-title"
-            className="font-body text-display-lg font-bold text-white mb-4"
+            className="font-body text-display-lg-mobile md:text-display-lg font-bold text-white mb-4"
           >
             Asegura tu vacante
           </h2>

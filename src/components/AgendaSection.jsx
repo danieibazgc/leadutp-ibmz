@@ -8,7 +8,7 @@ import FadeInUp from './FadeInUp';
 export default function AgendaSection() {
   return (
     <section
-      className="py-24 bg-surface border-b border-outline-variant relative"
+      className="py-16 sm:py-24 bg-surface border-b border-outline-variant relative"
       id="agenda"
       aria-labelledby="agenda-title"
     >
@@ -20,8 +20,8 @@ export default function AgendaSection() {
 
       <div className="max-w-[1280px] mx-auto px-4 md:px-margin-desktop relative z-10">
         {/* Section Header */}
-        <FadeInUp className="mb-16">
-          <h2 id="agenda-title" className="font-body text-headline-md font-bold mb-4">
+        <FadeInUp className="mb-10 sm:mb-16">
+          <h2 id="agenda-title" className="font-body text-2xl sm:text-headline-md font-bold mb-4">
             Agenda del Evento
           </h2>
           <div className="h-1 w-16 bg-ibm-blue-medium" aria-hidden="true" />

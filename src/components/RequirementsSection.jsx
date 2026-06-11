@@ -7,17 +7,17 @@ import FadeInUp from './FadeInUp';
 export default function RequirementsSection() {
   return (
     <section
-      className="py-24 bg-surface border-b border-outline-variant"
+      className="py-16 sm:py-24 bg-surface border-b border-outline-variant"
       id="requirements"
       aria-labelledby="audience-title requirements-title"
     >
       <div className="max-w-[1280px] mx-auto px-4 md:px-margin-desktop">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16">
           {/* Target Audience */}
           <FadeInUp>
             <h2
               id="audience-title"
-              className="font-body text-headline-md font-bold mb-8 flex items-center gap-3"
+              className="font-body text-2xl sm:text-headline-md font-bold mb-6 sm:mb-8 flex items-center gap-3"
             >
               <span
                 className="material-symbols-outlined text-ibm-blue-medium"
@@ -41,7 +41,7 @@ export default function RequirementsSection() {
                     {item.icon}
                   </span>
                   <div>
-                    <h4 className="font-body text-headline-sm text-white">
+                    <h4 className="font-body text-lg sm:text-headline-sm text-white">
                       {item.title}
                     </h4>
                     <p className="text-on-surface-variant">{item.description}</p>
@@ -53,10 +53,10 @@ export default function RequirementsSection() {
 
           {/* Mandatory Requirements */}
           <FadeInUp delay={200}>
-            <div className="bg-gray-cool border border-outline-variant border-l-4 border-l-lead-crimson p-8 h-full">
+            <div className="bg-gray-cool border border-outline-variant border-l-4 border-l-lead-crimson p-5 sm:p-8 h-full">
               <h2
                 id="requirements-title"
-                className="font-body text-headline-md font-bold mb-6 text-white flex items-center gap-3"
+                className="font-body text-2xl sm:text-headline-md font-bold mb-4 sm:mb-6 text-white flex items-center gap-3"
               >
                 <span
                   className="material-symbols-outlined text-lead-crimson"

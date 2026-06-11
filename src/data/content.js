@@ -30,9 +30,9 @@ export const EVENT_DETAILS = {
 export const BENEFITS = [
   {
     icon: 'workspace_premium',
-    title: 'Constancia UTP',
+    title: 'Constancia de participación',
     description:
-      'Obtén reconocimiento oficial de tu participación por parte de la universidad.',
+      'Obtén reconocimiento oficial de tu participación por parte de LEAD UTP e IBM Z Skills Team.',
   },
   {
     icon: 'verified',
@@ -103,9 +103,9 @@ export const TARGET_AUDIENCE = [
   },
   {
     icon: 'history_edu',
-    title: 'Egresados Recientes',
+    title: 'Egresados en Proceso de Titulación',
     description:
-      'Profesionales junior buscando especialización y oportunidades en infraestructuras críticas empresariales.',
+      'Egresados que se encuentran desarrollando su tesis para optar el título profesional en carreras de Ingeniería de Sistemas, Software, Ciencias de la Computación o afines.',
   },
 ];
 
