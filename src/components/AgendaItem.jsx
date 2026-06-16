@@ -1,5 +1,9 @@
 /**
  * AgendaItem — Single timeline entry with time, title, and description.
+ * Renders as a Fragment — the <li> wrapper is provided by FadeInUp in AgendaSection
+ * to keep the DOM tree valid: <ol> → <li> (FadeInUp) → content (Fragment).
+ *
+ * Fix D13: removed the redundant <li> wrapper that caused invalid <div><li> nesting.
  *
  * @param {Object} props
  * @param {string} props.time - Time string (e.g., "4:00 PM")
@@ -8,7 +12,7 @@
  */
 export default function AgendaItem({ time, title, description }) {
   return (
-    <li className="relative pl-8 md:pl-0 md:flex-1">
+    <>
       {/* Timeline dot */}
       <div
         className="absolute left-[-5px] md:left-auto md:top-[-41px] w-2.5 h-2.5 bg-ibm-blue-medium border border-surface"
@@ -25,6 +29,6 @@ export default function AgendaItem({ time, title, description }) {
 
       {/* Description */}
       <p className="text-on-surface-variant text-sm">{description}</p>
-    </li>
+    </>
   );
 }

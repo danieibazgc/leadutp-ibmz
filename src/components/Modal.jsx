@@ -9,28 +9,73 @@ import { useEffect, useRef } from 'react';
  * @param {function} onClose - Callback function to close the modal.
  * @param {string} title - The dialog title.
  * @param {object} content - Object containing introduction, sections, and footer.
+ *
+ * Fixes applied:
+ * - D5: Full focus trap — Tab/Shift+Tab cycle stays inside the modal.
+ * - D6: Saves the previous `overflow` value before locking and restores it on cleanup,
+ *       preventing race conditions with other components that may also control overflow.
+ * - D7: Replaces `setTimeout` with `requestAnimationFrame` for the initial focus,
+ *       avoiding stale closures and post-unmount calls.
+ * - D8: Moves `role="dialog"`, `aria-modal`, and `aria-labelledby` to the inner
+ *       modal box (not the full-screen backdrop), which is semantically correct.
  */
 export default function Modal({ isOpen, onClose, title, content }) {
   const closeButtonRef = useRef(null);
+  const modalRef = useRef(null);
 
-  // Close modal on Escape key press
   useEffect(() => {
+    if (!isOpen) return;
+
+    // D6: Persist previous overflow so restoration is always exact
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    // D7: requestAnimationFrame avoids stale ref and post-unmount calls
+    const rafId = requestAnimationFrame(() => {
+      closeButtonRef.current?.focus();
+    });
+
+    // D5: Focus trap — keep keyboard focus inside the modal dialog
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         onClose();
+        return;
+      }
+
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusable = Array.from(
+          modalRef.current.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter((el) => !el.disabled);
+
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          // Shift+Tab: if at first element, wrap to last
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          // Tab: if at last element, wrap to first
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
       }
     };
 
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'; // Prevent scrolling background
-      window.addEventListener('keydown', handleKeyDown);
-      // Focus the close button for accessibility
-      setTimeout(() => closeButtonRef.current?.focus(), 50);
-    }
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = previousOverflow; // D6: restore exact previous value
       window.removeEventListener('keydown', handleKeyDown);
+      cancelAnimationFrame(rafId); // D7: cancel if unmounted before rAF fires
     };
   }, [isOpen, onClose]);
 
@@ -44,15 +89,17 @@ export default function Modal({ isOpen, onClose, title, content }) {
   };
 
   return (
+    // Backdrop — intentionally NOT a dialog; it is just the dimmed overlay
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-backdrop-fade"
       onClick={handleBackdropClick}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
     >
-      {/* Modal Box */}
+      {/* D8: role="dialog" belongs here on the visible dialog box, not the backdrop */}
       <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
         className="relative w-full max-w-[640px] bg-surface-container border border-outline-variant shadow-2xl flex flex-col max-h-[90vh] sm:max-h-[85vh] animate-modal-enter"
         style={{
           boxShadow: '0 0 30px rgba(15, 98, 254, 0.15)', // Subtle IBM blue glow

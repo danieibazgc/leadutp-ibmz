@@ -90,7 +90,7 @@ export const SPEAKER = {
     'Maria Fernanda es la líder principal de habilidades y ecosistema educativo para IBM Z en Latinoamérica y España. Su misión es cerrar la brecha de talento tecnológico conectando a la próxima generación de profesionales con las infraestructuras que sostienen la economía global.',
     'Con más de una década de experiencia en el sector corporativo, ha diseñado programas que han impactado a miles de estudiantes, facilitando su inserción en corporaciones top del sector bancario, retail y gubernamental.',
   ],
-  photo: '/images/speaker-photo.png',
+  photo: '/images/speaker-photo.webp',
   linkedin: 'https://www.linkedin.com/in/mar1p1nk/',
 };
 
@@ -187,9 +187,9 @@ export const TERMS_OF_SERVICE = {
 };
 
 export const IMAGES = {
-  ibmZLogo: '/images/ibm-z-logo.png',
-  leadUtpLogo: '/images/lead-utp-logo.png',
-  ibmBob: '/images/ibm-bob-character.png',
-  speakerPhoto: '/images/speaker-photo.png',
-  bgTexture: '/images/bg-texture.png',
+  ibmZLogo: '/images/ibm-z-logo.webp',
+  leadUtpLogo: '/images/lead-utp-logo.webp',
+  ibmBob: '/images/ibm-bob-character.webp',
+  speakerPhoto: '/images/speaker-photo.webp',
+  bgTexture: '/images/bg-texture.webp',
 };

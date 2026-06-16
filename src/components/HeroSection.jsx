@@ -96,7 +96,7 @@ export default function HeroSection() {
               width={320}
               height={320}
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </div>
         </FadeInUp>

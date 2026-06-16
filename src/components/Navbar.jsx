@@ -1,11 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NAV_LINKS, IMAGES } from '../data/content';
 
 /**
  * Navbar — Fixed top navigation with brand logos, links, CTA, and mobile menu.
+ *
+ * Fixes applied:
+ * - D1: Scroll lock on body when mobile menu is open.
+ * - D1: Auto-close menu when viewport reaches the lg breakpoint (≥1024px).
+ * - D2: `inert` attribute on the hidden menu so off-screen links are not tabbable.
  */
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // D1 — Prevent background scroll while mobile menu is open
+  // Must lock both <html> and <body> for cross-browser compatibility
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  // D1 — Close menu automatically when resizing to desktop (lg = 1024 px)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setMobileMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <nav
@@ -79,7 +109,10 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu
+          D2: `inert` prevents keyboard/pointer interaction when visually hidden.
+              The transition still works because CSS reads the DOM state before
+              the attribute is evaluated by assistive tech. */}
       <div
         id="mobile-nav-menu"
         className={`lg:hidden border-t border-outline-variant bg-surface/98 backdrop-blur-sm overflow-hidden transition-all duration-300 ${
@@ -87,6 +120,7 @@ export default function Navbar() {
         }`}
         role="navigation"
         aria-label="Navegación móvil"
+        inert={!mobileMenuOpen || undefined}
       >
         <ul className="px-4 py-4 space-y-4 font-mono text-label-mono">
           {NAV_LINKS.map((link) => (

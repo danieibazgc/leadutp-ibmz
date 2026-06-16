@@ -31,7 +31,7 @@ export default function AgendaSection() {
         <div className="relative border-l border-outline-variant ml-4 md:ml-0 md:border-l-0 md:border-t pt-8 md:pt-0">
           <ol className="flex flex-col md:flex-row gap-8 md:gap-0 justify-between md:pt-8 list-none">
             {AGENDA_ITEMS.map((item, index) => (
-              <FadeInUp key={item.time} delay={index * 100} as="div" className="md:flex-1">
+              <FadeInUp key={item.time} delay={index * 100} as="li" className="relative pl-8 md:pl-0 md:flex-1">
                 <AgendaItem
                   time={item.time}
                   title={item.title}
